@@ -1,0 +1,100 @@
+{% load staticfiles thumbnail %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>I'm here</title>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'blog/style.css' %}" rel="stylesheet">
+    <style>
+    body {
+            padding-top: 0px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 구글 map api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">LEEVER</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Profile <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li class="dropdown">
+                  <a href="{% url "blog:travel" %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Travel <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url "blog:travel" %}">ALL</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/travel/2011">2011이전</a></li>
+                    <li><a href="/travel/2012">2012</a></li>
+                    <li><a href="/travel/2013">2013</a></li>
+                    <li><a href="/travel/2014">2014</a></li>
+                    <li><a href="/travel/2015">2015</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!--<form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>-->
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!--footer-->
+    <div class= "well" id="footer">
+      <div class="container">
+        <p class="text-muted">This Bootstrap Example courtesy <a href="http://www.bootply.com">Bootply.com</a></p>
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>

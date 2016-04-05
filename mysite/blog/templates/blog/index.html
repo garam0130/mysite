@@ -1,0 +1,231 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <!-- Page Content -->
+
+    <div class="jumbotron">
+      <h1>LEEVER flows in you</h1>
+      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <!--<p><a class="btn btn-primary btn-lg">Learn more</a></p>-->
+    </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body profile-information">
+                       <div class="col-md-3">
+                           <div class="profile-pic text-center">
+                               <img src = 'http://p-rogramming.net/media/cache/d8/79/d8794b340c6e6a42cd2e75f92a3bcd61.jpg' alt=""/>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="profile-desk">
+                               <h1>Lee Ga Ram</h1>
+                               <span class="text-muted">Product Manager</span>
+                               <p>
+                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor vestibulum imperdiet. Ut auctor accumsan erat, a vulputate metus tristique non. Aliquam aliquam vel orci quis sagittis.
+                               </p>
+                               <!--<a href="#" class="btn btn-primary">View Profile</a>-->
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="profile-statistics">
+                               <h1>1240</h1>
+                               <p>This Week Sales</p>
+                               <h1>$5,61,240</h1>
+                               <p>This Week Earn</p>
+                               <!--<ul>
+                                   <li>
+                                       <a href="#">
+                                           <i class="fa fa-facebook"></i>
+                                       </a>
+                                   </li>
+                                   <li class="active">
+                                       <a href="#">
+                                           <i class="fa fa-twitter"></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="#">
+                                           <i class="fa fa-google-plus"></i>
+                                       </a>
+                                   </li>
+                               </ul>-->
+                           </div>
+                       </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+
+
+
+
+    <hr class="">
+    <div class="container">
+        <div class="row">
+            {% for activity in activity_list %}
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src= "{{ activity.photo.url }}" class="">
+                    <div class="caption">
+                        <h4 class="">{{ activity.name }}</h4>
+                        <p class="">{{ activity.content }}</p> <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>  <a href="#" class="btn btn-default btn-xs" role="button">More Info</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!--<div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/320x125/EEE" class="">
+                    <div class="caption">
+                         <h4 class="">Application</h4>
+
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur,
+                            culpa itaque odio similique suscipit</p> <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>  <a href="#" class="btn btn-default btn-xs" role="button">More Info</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/320x125/EEE" class="">
+                    <div class="caption">
+                         <h4 class="">Application</h4>
+
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur,
+                            culpa itaque odio similique suscipit</p> <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>  <a href="#" class="btn btn-default btn-xs" role="button">More Info</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/320x125/EEE" class="">
+                    <div class="caption">
+                         <h4 class="">Application</h4>
+
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur,
+                            culpa itaque odio similique suscipit</p> <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>  <a href="#" class="btn btn-default btn-xs" role="button">More Info</a>
+
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container -->
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>I was here!</h1>
+                </ul>
+                <div class="col-lg-12 text-center" id="map" style="width:800px; height:400px; text-align:center;"></div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+
+
+        <script>
+
+
+    // function initialize() {
+    //             var mapCanvas = document.getElementById('map');
+    //             var myLatlng = [];
+    //             {% for spot in spot_list %}
+    //             myLatlng.push(new google.maps.LatLng("{{ spot.lnglat }}"));     // 위경도 설정
+    //             {% endfor %}
+
+    //             var mapOptions = {          // 구글 맵 옵션
+    //                 center: new google.maps.LatLng("53.120381,8.5962009"),
+    //                 zoom: 2,
+    //                 mapTypeId: google.maps.MapTypeId.ROADMAP
+    //             };
+
+    //             // 구글 맵 생성
+    //             var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //             var contentString = '<div style="width:100px;height:50px;">here!</div>';      // 말풍선 내용
+
+    //             var infowindow = new google.maps.InfoWindow({
+    //                 content: contentString,
+    //                 size: new google.maps.Size(200,100)
+    //             });
+
+    //             var marker = [];
+    //             for(var i=0; i < myLatlng.length; i++){
+    //                 marker.push(
+    //                     new google.maps.Marker({
+    //                         position: myLatlng[i],
+    //                         map: map,
+    //                         draggable:true,         // 마커 드래그 가능
+    //                         title: 'Hello World!'   // 마커 : 도움말 풍선(마우스 오버 시)
+    //                     })
+    //                 )
+    //             }
+
+    //             // google.maps.event.addListener(marker, 'click', function() {
+    //             //     infowindow.open(map, marker);
+
+    //             //     if (marker.getAnimation() != null) {
+    //             //         marker.setAnimation(null);
+    //             //     } else {
+    //             //         marker.setAnimation(google.maps.Animation.BOUNCE);
+    //             //     }
+    //             // });
+
+
+    //             for (var i = 0; i < marker.length; i++) {
+    //                 marker[i].setMap(map);
+    //             }
+    //         }
+
+    //         google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <script type="text/javascript">
+   var locations = [
+   {% for spot in spot_list %}
+    ["{{ spot.name }}", {{spot.lnglat}}],
+   {% endfor %}
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      center: new google.maps.LatLng({{first_spot.lnglat}}),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    </script>
+
+
+{% endblock %}
